@@ -5,10 +5,11 @@ date: 2017-10-11 08:55:20
 description: You’ll find this post in your `_posts` directory. test. # Add post description (optional)
 img:  # Add image post (optional)
 ---
-遇到一个centos C++编译环境问题，
-原因是：添加交叉编译环境时，在/usr/local/include , /usr/local/lib 中添加交叉环境的头文件和库，
-问题是：不能编译任何C++文件，只要编译就出现系统头文件错误。
-解决方式：删除交叉编译环境的头文件和库文件
-
+遇到一个centos C++编译环境问题
+---
+* 原因是：添加交叉编译环境时，在/usr/local/include , /usr/local/lib 中添加交叉环境的头文件和库，
+* 问题是：不能编译任何C++文件，只要编译就出现系统头文件错误。
+* 解决方式：删除交叉编译环境的头文件和库文件
+---
 其中进行重装gcc的编译环境，没有用。
 
