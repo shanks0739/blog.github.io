@@ -1,9 +1,19 @@
-Hello Test
+---
+layout: main
+---
+{% for post in paginator.posts %}
+<article class="post">
+  {% if post.img %}
+    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
+  {% else %}
+  {% endif %}
+  <div class="post-content">
+    <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
+    <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
+    <span class="post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+    <span class="post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minute read" }}{% endunless %}</span>
+  </div>
+</article>
+{% endfor %}
 
-2017-10-10
-遇到一个centos C++编译环境问题，
-原因是：添加交叉编译环境时，在/usr/local/include , /usr/local/lib 中添加交叉环境的头文件和库，
-问题是：不能编译任何C++文件，只要编译就出现系统头文件错误。
-解决方式：删除交叉编译环境的头文件和库文件
-
-其中进行重装gcc的编译环境，没有用。
+{% include pagination.html %}
